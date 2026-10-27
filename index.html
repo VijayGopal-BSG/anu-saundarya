@@ -1,0 +1,1310 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow"><meta name="color-scheme" content="light dark">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Amma SL">
+<title>Saundarya Lahari with Amma</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Sanskrit:ital@0;1&display=swap" rel="stylesheet">
+<style>:root{
+  --bg:#FBF7F0; --card:#FFFFFF; --ink:#2B2118; --muted:#6F6253; --line:#E7DED1;
+  --accent:#B4531A; --accent-ink:#FFFFFF; --accent-soft:#F6E5D8;
+  --ok:#2E7D4F; --ok-soft:#E3F1E8; --bad:#C0392B; --bad-soft:#F8E1DE; --warn:#B7791F; --warn-soft:#FBEFD9;
+  --rec:#C62828; --lane:#F3ECE2; --shadow:0 1px 3px rgba(43,33,24,.08),0 4px 14px rgba(43,33,24,.06);
+  --deva:"Tiro Devanagari Sanskrit","Noto Sans Devanagari","Kohinoor Devanagari",serif;
+  --ui:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1B1611; --card:#251E17; --ink:#F2EAE0; --muted:#B5A898; --line:#3A3027;
+    --accent:#E0803F; --accent-ink:#1B1611; --accent-soft:#3A2618;
+    --ok:#5BBE83; --ok-soft:#1E3227; --bad:#EF6C5E; --bad-soft:#3C1F1B; --warn:#E3A84A; --warn-soft:#3A2D16;
+    --rec:#EF5350; --lane:#2E261E; --shadow:none;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1B1611; --card:#251E17; --ink:#F2EAE0; --muted:#B5A898; --line:#3A3027;
+  --accent:#E0803F; --accent-ink:#1B1611; --accent-soft:#3A2618;
+  --ok:#5BBE83; --ok-soft:#1E3227; --bad:#EF6C5E; --bad-soft:#3C1F1B; --warn:#E3A84A; --warn-soft:#3A2D16;
+  --rec:#EF5350; --lane:#2E261E; --shadow:none;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 var(--ui);}
+.wrap{max-width:720px;margin:0 auto;padding:12px 16px 96px}
+h1{font-size:22px;margin:8px 0 2px;letter-spacing:-.01em}
+h2{font-size:18px;margin:18px 0 8px}
+h3{font-size:16px;margin:12px 0 6px}
+p{margin:6px 0}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0;box-shadow:var(--shadow)}
+.row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.spread{display:flex;justify-content:space-between;align-items:center;gap:8px}
+button,.btn{font:600 16px var(--ui);border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:12px 16px;min-height:48px;cursor:pointer;-webkit-tap-highlight-color:transparent;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+button:disabled{opacity:.45;cursor:default}
+.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.rec{background:var(--rec);border-color:var(--rec);color:#fff}
+.big{width:100%;font-size:18px;min-height:56px}
+.chip{min-height:38px;padding:6px 12px;border-radius:20px;font-size:14px}
+.chip.on{background:var(--accent-soft);border-color:var(--accent);color:var(--ink)}
+.link{background:none;border:none;color:var(--accent);padding:6px 0;min-height:0;font-weight:600}
+.deva{font-family:var(--deva);font-size:27px;line-height:1.9;word-break:normal;overflow-wrap:anywhere}
+.deva.sm{font-size:21px;line-height:1.8}
+.iast{font-style:italic;color:var(--muted);font-size:15px}
+.label{display:inline-block;font:600 13px var(--ui);color:var(--accent);background:var(--accent-soft);border-radius:8px;padding:2px 8px}
+.player{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:12px;overflow:hidden}
+.player > div,.player iframe{position:absolute;inset:0;width:100%;height:100%}
+.bar{height:8px;background:var(--lane);border-radius:4px;overflow:hidden}
+.bar > i{display:block;height:100%;background:var(--ok);border-radius:4px}
+.ok{color:var(--ok)} .bad{color:var(--bad)} .warn{color:var(--warn)}
+.note{background:var(--warn-soft);border-radius:10px;padding:10px 12px;font-size:15px}
+.good{background:var(--ok-soft);border-radius:10px;padding:10px 12px}
+.badbox{background:var(--bad-soft);border-radius:10px;padding:10px 12px}
+.meter{height:10px;background:var(--lane);border-radius:5px;overflow:hidden}
+.meter > i{display:block;height:100%;width:0;background:var(--accent);transition:width .08s}
+.dots{display:inline-flex;gap:4px;vertical-align:middle}
+.dots i{width:10px;height:10px;border-radius:50%;background:var(--line);display:inline-block}
+.dots i.p{background:var(--ok)} .dots i.f{background:var(--bad)}
+ul.clean{list-style:none;margin:0;padding:0}
+ul.clean li{padding:10px 0;border-bottom:1px solid var(--line)}
+ul.clean li:last-child{border-bottom:none}
+.tick{color:var(--ok);font-weight:700}
+.stafwrap{overflow-x:auto}
+svg text{font-family:var(--deva)}
+textarea{width:100%;min-height:120px;font:13px ui-monospace,Menlo,monospace;border:1px solid var(--line);border-radius:10px;padding:8px;background:var(--card);color:var(--ink)}
+input[type=number],select{font:16px var(--ui);padding:8px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.sticky{position:sticky;bottom:0;background:linear-gradient(to top,var(--bg) 70%,transparent);padding:10px 0 12px}
+.hidden{display:none !important}
+.steps{display:flex;gap:6px;margin:8px 0}
+.steps span{flex:1;height:6px;border-radius:3px;background:var(--line)}
+.steps span.done{background:var(--ok)} .steps span.cur{background:var(--accent)}
+@media (max-width:420px){ .deva{font-size:24px} }
+
+.navbar{margin:12px 0}
+.navbar:empty{display:none}
+summary{list-style:none} summary::-webkit-details-marker{display:none}
+.chev{display:inline-block;transition:transform .15s;color:var(--accent);font-weight:700;width:1em}
+details[open] > summary .chev{transform:rotate(90deg)}
+</style></head><body><main class="wrap"><div id="app"><p class="muted">Loading…</p></div></main><script>window.VAULT={"salt": "YfNA64a+wvxe33rt5HXEVA==", "iter": 250000, "check": "pILDMY7zP0X8VxZxLInXSjcKM0sgr/ABwkt8N60jEPVInc4="};</script><script>
+/* Chant Trainer scoring engine (no reference audio).
+ * Pitch tracking (YIN) -> syllable segmentation (DP to the expected syllable count)
+ * -> per-syllable level (low / middle / high, unsupervised) -> compare with the svara marks.
+ * Works in the browser (window.ChantEngine) and in Node (module.exports). */
+(function (root) {
+  'use strict';
+  const SR = 16000, HOP = 160, WIN = 400, TAU_MIN = 27, TAU_MAX = 267; // 60–600 Hz
+  const FRAME_S = HOP / SR;
+
+  // ---------- resampling to 16 kHz ----------
+  function makeResampler(inRate) {
+    // simple anti-alias (moving average over ratio) + linear interpolation; state kept across chunks
+    const ratio = inRate / SR;
+    let pos = 0, prev = 0, acc = [], carry = new Float32Array(0);
+    const k = Math.max(1, Math.round(ratio));
+    return function (chunk) {
+      // box filter of width k
+      const buf = new Float32Array(carry.length + chunk.length);
+      buf.set(carry); buf.set(chunk, carry.length);
+      const filt = new Float32Array(buf.length);
+      let s = 0;
+      for (let i = 0; i < buf.length; i++) { s += buf[i]; if (i >= k) s -= buf[i - k]; filt[i] = s / Math.min(k, i + 1); }
+      const out = [];
+      while (pos + 1 < filt.length) {
+        const i0 = Math.floor(pos), f = pos - i0;
+        out.push(filt[i0] * (1 - f) + filt[i0 + 1] * f);
+        pos += ratio;
+      }
+      const keepFrom = Math.max(0, Math.floor(pos) - k);
+      carry = buf.slice(keepFrom);
+      pos -= keepFrom;
+      return Float32Array.from(out);
+    };
+  }
+
+  // ---------- YIN pitch tracker, incremental ----------
+  class PitchTracker {
+    constructor() { this.buf = new Float32Array(0); this.frames = []; this.d = new Float32Array(TAU_MAX + 1); }
+    push(x16) { // Float32Array at 16 kHz
+      const nb = new Float32Array(this.buf.length + x16.length);
+      nb.set(this.buf); nb.set(x16, this.buf.length);
+      let off = 0;
+      const need = WIN + TAU_MAX;
+      while (off + need <= nb.length) { this.frames.push(this._frame(nb, off)); off += HOP; }
+      this.buf = nb.slice(off);
+    }
+    _frame(x, o) {
+      let e = 0; for (let j = 0; j < WIN; j++) e += x[o + j] * x[o + j];
+      const rms = Math.sqrt(e / WIN);
+      const d = this.d; d[0] = 1;
+      let run = 0, best = -1, bestVal = 1e9;
+      for (let tau = 1; tau <= TAU_MAX; tau++) {
+        let s = 0;
+        for (let j = 0; j < WIN; j++) { const v = x[o + j] - x[o + j + tau]; s += v * v; }
+        run += s;
+        d[tau] = run > 0 ? s * tau / run : 1;
+      }
+      // first dip below threshold
+      for (let tau = TAU_MIN; tau <= TAU_MAX; tau++) {
+        if (d[tau] < 0.15) {
+          while (tau + 1 <= TAU_MAX && d[tau + 1] < d[tau]) tau++;
+          best = tau; bestVal = d[tau]; break;
+        }
+      }
+      if (best < 0) { for (let tau = TAU_MIN; tau <= TAU_MAX; tau++) if (d[tau] < bestVal) { bestVal = d[tau]; best = tau; } }
+      let f0 = 0;
+      if (bestVal < 0.35) {
+        let t = best;
+        if (best > TAU_MIN && best < TAU_MAX) {
+          const a = d[best - 1], b = d[best], c = d[best + 1], den = a - 2 * b + c;
+          if (den !== 0) t = best + 0.5 * (a - c) / den;
+        }
+        f0 = SR / t;
+      }
+      return { rms: rms, f0: f0, ap: bestVal };
+    }
+  }
+
+  // ---------- helpers ----------
+  const median = a => { if (!a.length) return NaN; const s = Float64Array.from(a).sort(); const m = s.length >> 1; return s.length % 2 ? s[m] : (s[m - 1] + s[m]) / 2; };
+  const pct = (a, p) => { if (!a.length) return NaN; const s = Float64Array.from(a).sort(); const i = Math.min(s.length - 1, Math.max(0, Math.round(p * (s.length - 1)))); return s[i]; };
+  const st = f => 12 * Math.log2(f / 55);
+  const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+  // frames -> features: dB energy (smoothed), voiced flag, semitone pitch (octave-corrected)
+  function features(frames) {
+    const n = frames.length;
+    const rms = frames.map(f => f.rms);
+    const noise = Math.max(pct(rms, 0.1), 1e-5);
+    const peak = pct(rms, 0.98);
+    const gate = Math.max(noise * 3, peak * 0.04);
+    const voiced = new Uint8Array(n), pitch = new Float64Array(n).fill(NaN), E = new Float64Array(n);
+    for (let i = 0; i < n; i++) {
+      E[i] = 20 * Math.log10(frames[i].rms + 1e-7);
+      if (frames[i].f0 > 0 && frames[i].rms > gate && frames[i].ap < 0.3) { voiced[i] = 1; pitch[i] = st(frames[i].f0); }
+    }
+    // octave correction against a running median of voiced pitch
+    const vp = []; for (let i = 0; i < n; i++) if (voiced[i]) vp.push(i);
+    for (let k = 0; k < vp.length; k++) {
+      const w = []; for (let j = Math.max(0, k - 7); j <= Math.min(vp.length - 1, k + 7); j++) w.push(pitch[vp[j]]);
+      const m = median(w), i = vp[k];
+      if (Math.abs(pitch[i] - m) > 8) pitch[i] -= 12 * Math.round((pitch[i] - m) / 12);
+      if (Math.abs(pitch[i] - m) > 5) { voiced[i] = 0; pitch[i] = NaN; } // still wild: drop
+    }
+    // light median smoothing of pitch (3)
+    const p2 = Float64Array.from(pitch);
+    for (let i = 1; i < n - 1; i++) if (voiced[i - 1] && voiced[i] && voiced[i + 1]) p2[i] = median([pitch[i - 1], pitch[i], pitch[i + 1]]);
+    // smoothed energy
+    const Es = new Float64Array(n);
+    for (let i = 0; i < n; i++) { let s = 0, c = 0; for (let j = i - 2; j <= i + 2; j++) if (j >= 0 && j < n) { s += E[j]; c++; } Es[i] = s / c; }
+    // active region
+    const actGate = 20 * Math.log10(gate + 1e-7);
+    let a = 0, b = n - 1;
+    while (a < n && Es[a] < actGate) a++;
+    while (b > a && Es[b] < actGate) b--;
+    const snr = 20 * Math.log10(peak / noise);
+    return { n, voiced, pitch: p2, E: Es, start: a, end: b + 1, snr, actGate };
+  }
+
+  // drop silent runs (>= 0.25 s) inside [a,b): pauses between lines or words are not syllables.
+  // Returns compressed features with idx (compressed -> original frame) and gap (frames removed after each frame).
+  function compress(F, a, b, opt) {
+    const minGap = (opt && opt.minGap) || 25, quiet = opt && opt.quiet;
+    const sil = t => (!F.voiced[t] && F.E[t] < F.actGate + 4) || (quiet && quiet[t]);
+    const keep = [], gap = [];
+    let t = a;
+    while (t < b) {
+      if (sil(t)) {
+        let u = t; while (u < b && sil(u)) u++;
+        if (u - t >= minGap) { // remove, keeping 2 frames each side
+          for (let j = t; j < Math.min(t + 2, u); j++) { keep.push(j); gap.push(0); }
+          if (gap.length) gap[gap.length - 1] = (u - 2) - (t + 2);
+          for (let j = Math.max(t + 2, u - 2); j < u; j++) { keep.push(j); gap.push(0); }
+        } else for (let j = t; j < u; j++) { keep.push(j); gap.push(0); }
+        t = u;
+      } else { keep.push(t); gap.push(0); t++; }
+    }
+    const n = keep.length;
+    const C = { n, idx: Int32Array.from(keep), gap: Int32Array.from(gap), voiced: new Uint8Array(n), pitch: new Float64Array(n), E: new Float64Array(n), actGate: F.actGate, snr: F.snr };
+    for (let i = 0; i < n; i++) { C.voiced[i] = F.voiced[keep[i]]; C.pitch[i] = F.pitch[keep[i]]; C.E[i] = F.E[keep[i]]; }
+    return C;
+  }
+
+  // count energy peaks (syllable nuclei estimate) in [a,b)
+  function nucleiCount(F, a, b) {
+    let c = 0, last = -100;
+    for (let i = a + 2; i < b - 2; i++) {
+      const v = F.E[i];
+      if (v >= F.E[i - 1] && v > F.E[i + 1] && v >= F.E[i - 2] && v >= F.E[i + 2] && F.voiced[i]) {
+        // prominence: min on each side within 25 frames
+        let lm = v, rm = v;
+        for (let j = i - 1; j >= Math.max(a, i - 150) && F.E[j] <= v; j--) lm = Math.min(lm, F.E[j]);
+        for (let j = i + 1; j < Math.min(b, i + 150) && F.E[j] <= v; j++) rm = Math.min(rm, F.E[j]);
+        if (v - Math.max(lm, rm) >= 2.5 && i - last >= 7) { c++; last = i; }
+      }
+    }
+    return c;
+  }
+
+  // ---------- segmentation: N syllables with weights w over frames [a,b) ----------
+  function segment(F, a, b, w, opt) {
+    opt = opt || {};
+    const T = b - a, N = w.length, W = w.reduce((x, y) => x + y, 0);
+    const exp = w.map(x => T * x / W);
+    // prefix sums for pitch variance
+    const cs = new Float64Array(T + 1), cs2 = new Float64Array(T + 1), cn = new Float64Array(T + 1);
+    for (let t = 0; t < T; t++) {
+      const p = F.pitch[a + t], v = F.voiced[a + t] && !isNaN(p);
+      cs[t + 1] = cs[t] + (v ? p : 0); cs2[t + 1] = cs2[t] + (v ? p * p : 0); cn[t + 1] = cn[t] + (v ? 1 : 0);
+    }
+    // boundary cost: dips in energy relative to local max, unvoiced bonus
+    const bc = new Float64Array(T + 1);
+    for (let t = 1; t < T; t++) {
+      let mx = -1e9; for (let j = Math.max(0, t - 8); j <= Math.min(T - 1, t + 8); j++) mx = Math.max(mx, F.E[a + j]);
+      bc[t] = (F.E[a + t] - mx) / 6 + (F.voiced[a + t] ? 0 : -0.6);
+      if (F.gap && (F.gap[a + t - 1] > 0 || F.gap[a + t - 2] > 0 || F.gap[a + t] > 0)) bc[t] -= 3; // a pause is a natural boundary
+    }
+    const LD = opt.lambdaDur || 1.2, LP = opt.lambdaPitch || 0.08;
+    const INF = 1e18;
+    const D = new Float64Array((N + 1) * (T + 1)).fill(INF), BP = new Int32Array((N + 1) * (T + 1)).fill(-1);
+    D[0] = 0;
+    const band = opt.band || Infinity;
+    let cumExp = 0;
+    for (let k = 1; k <= N; k++) {
+      const e = exp[k - 1];
+      const minL = Math.max(2, Math.floor(e * 0.25)), maxL = Math.max(minL + 1, Math.ceil(e * 3.5 + 8));
+      const prevCum = cumExp; cumExp += e;
+      const lo = k === N ? T : Math.max(k * 2, Math.floor(cumExp - band)), hi = k === N ? T : Math.min(T - (N - k) * 2, Math.ceil(cumExp + band));
+      for (let t = lo; t <= hi; t++) {
+        const aMin = Math.max(t - maxL, 0), aMax = t - minL;
+        let best = INF, arg = -1;
+        for (let s = aMin; s <= aMax; s++) {
+          const prev = D[(k - 1) * (T + 1) + s]; if (prev >= INF) continue;
+          const L = t - s, r = Math.log(L / e);
+          let c = prev + LD * r * r;
+          const nv = cn[t] - cn[s];
+          if (nv > 1) { const m = (cs[t] - cs[s]) / nv; c += LP * Math.min(9, (cs2[t] - cs2[s]) / nv - m * m); }
+          else c += 0.8; // a syllable with no voiced frames is unlikely
+          if (k < N) c += bc[t];
+          if (c < best) { best = c; arg = s; }
+        }
+        D[k * (T + 1) + t] = best; BP[k * (T + 1) + t] = arg;
+      }
+    }
+    if (D[N * (T + 1) + T] >= INF) return null;
+    const bounds = new Array(N + 1); bounds[N] = T;
+    for (let k = N; k >= 1; k--) bounds[k - 1] = BP[k * (T + 1) + bounds[k]];
+    return bounds.map(x => x + a);
+  }
+
+  // line boundaries over candidate cut points (pauses and energy dips), DP on line lengths (matras)
+  function segmentLines(F, lw, opt) {
+    const LDL = (opt && opt.lambda) || 16, GB = (opt && opt.gapBonus) || 3;
+    const n = F.n, N = lw.length, W = lw.reduce((x, y) => x + y, 0);
+    const cand = new Set([0, n]);
+    const bonus = new Map();
+    for (let c = 0; c < n - 1; c++) if (F.gap[c] > 0) { cand.add(c + 1); bonus.set(c + 1, -GB * (0.5 + 0.5 * Math.min(1, F.gap[c] / 40))); }
+    for (let c = 8; c < n - 8; c++) {
+      let isMin = true; for (let j = c - 7; j <= c + 7; j++) if (F.E[j] < F.E[c]) { isMin = false; break; }
+      let nearGap = false; for (let j = c - 4; j <= c + 4; j++) if (j >= 0 && j < n && F.gap[j] > 0) { nearGap = true; break; }
+      if (isMin && !nearGap && !cand.has(c)) { let mx = -1e9; for (let j = c - 15; j <= c + 15; j++) if (j >= 0 && j < n) mx = Math.max(mx, F.E[j]); cand.add(c); bonus.set(c, Math.max(-1, (F.E[c] - mx) / 20)); }
+    }
+    const P = [...cand].sort((x, y) => x - y), K = P.length;
+    const INF = 1e18, D = new Float64Array((N + 1) * K).fill(INF), BP = new Int32Array((N + 1) * K).fill(-1);
+    D[0] = 0;
+    let cum = 0;
+    for (let k = 1; k <= N; k++) {
+      const e = n * lw[k - 1] / W, minL = Math.max(4, 0.3 * e), maxL = 3 * e + 60;
+      cum += e;
+      for (let j = 1; j < K; j++) {
+        if (k === N && j !== K - 1) continue;
+        if (k < N && j === K - 1) continue;
+        const b = P[j]; let best = INF, arg = -1;
+        for (let i = j - 1; i >= 0; i--) {
+          const L = b - P[i]; if (L < minL) continue; if (L > maxL) break;
+          const prev = D[(k - 1) * K + i]; if (prev >= INF) continue;
+          const r = Math.log(L / e);
+          const c = prev + LDL * r * r + (k < N ? (bonus.get(b) || 0) : 0);
+          if (c < best) { best = c; arg = i; }
+        }
+        D[k * K + j] = best; BP[k * K + j] = arg;
+      }
+    }
+    if (D[N * K + K - 1] >= INF) return null;
+    const out = new Array(N + 1); let j = K - 1;
+    for (let k = N; k >= 1; k--) { out[k] = P[j]; j = BP[k * K + j]; }
+    out[0] = 0;
+    return out;
+  }
+
+  // per-syllable pitch stats
+  function sylStats(F, s, e) {
+    // the start of a segment still carries the previous note (consonant + glide), so judge the later part
+    const L = e - s, c0 = Math.floor(L * 0.4), c1 = Math.floor(L * 0.1);
+    const p = [], all = [];
+    for (let t = s; t < e; t++) if (F.voiced[t] && !isNaN(F.pitch[t])) { all.push(F.pitch[t]); if (t >= s + c0 && t < e - c1) p.push(F.pitch[t]); }
+    const use = p.length >= 2 ? p : all;
+    if (use.length < 2) return { ok: false };
+    const third = Math.max(1, Math.floor(all.length / 3));
+    return { ok: true, med: median(use), pk: pct(use, 0.8), lo: pct(use, 0.2), start: median(all.slice(0, third)), end: median(all.slice(-third)), nv: all.length };
+  }
+
+  // Theil–Sen slope
+  function theilSen(xs, ys) {
+    const sl = [];
+    for (let i = 0; i < xs.length; i++) for (let j = i + 1; j < xs.length; j++) if (xs[j] !== xs[i]) sl.push((ys[j] - ys[i]) / (xs[j] - xs[i]));
+    return sl.length ? median(sl) : 0;
+  }
+
+  // classify observed levels relative to her own middle note (per-syllable marks are not used;
+  // only the line's overall share of low/middle/high marks helps pick which pitch cluster is "middle")
+  function classifyAt(stats, times, idx, r, M0) {
+    const span = (Math.max(...times) - Math.min(...times)) || 1;
+    let Mc = M0, slope = 0, tc = median(times);
+    let res = null;
+    for (let it = 0; it < 4; it++) {
+      const mid = t => Mc + slope * (t - tc);
+      const d = stats.map((s, i) => s.ok ? s.med - mid(times[i]) : NaN);
+      const dpk = stats.map((s, i) => s.ok ? Math.max(s.pk, s.end) - mid(times[i]) : NaN);
+      const dlo = stats.map((s, i) => s.ok ? Math.min(s.med, s.lo + 0.3) - mid(times[i]) : NaN);
+      const lows = d.filter(v => v < -0.6), highs = dpk.filter(v => v > 0.6);
+      const cL = lows.length >= 2 ? median(lows) : -1.5, cH = highs.length >= 2 ? median(highs) : 1.5;
+      const thL = clamp(Math.abs(cL) * 0.5, 0.45, 1.2), thH = clamp(cH * 0.5, 0.45, 1.2);
+      const obs = stats.map((s, i) => {
+        if (!s.ok) return null;
+        const isLow = dlo[i] <= -thL && d[i] <= -thL * 0.6, isHigh = dpk[i] >= thH;
+        if (isLow && isHigh) return (-d[i] > dpk[i]) ? 'low' : 'high';
+        return isLow ? 'low' : isHigh ? 'high' : 'mid';
+      });
+      res = { obs, d, dpk, thL, thH, M: Mc, slope };
+      // refit the middle line through the syllables now read as middle
+      const xm = [], ym = [];
+      idx.forEach(i => { if (obs[i] === 'mid') { xm.push(times[i]); ym.push(stats[i].med); } });
+      if (xm.length < 2) break;
+      const nM = median(ym), nT = median(xm);
+      let ns = xm.length >= 4 ? theilSen(xm, ym) : 0;
+      if (Math.abs(ns * span) < 0.4) ns = 0;
+      if (Math.abs(nM - Mc) < 0.05 && Math.abs(ns - slope) < 0.01) break;
+      Mc = nM; tc = nT; slope = ns;
+    }
+    return res;
+  }
+  function classify(stats, times, expLv) {
+    const idx = stats.map((s, i) => s.ok ? i : -1).filter(i => i >= 0);
+    const r = idx.map(i => stats[i].med);
+    if (r.length < 2) return { flat: true, obs: stats.map(() => null), d: stats.map(() => NaN), spread: 0 };
+    // smoothed histogram of syllable medians (0.25 st bins); its peaks are candidate middle notes
+    const lo = Math.min(...r) - 1, hi = Math.max(...r) + 1, nb = Math.ceil((hi - lo) / 0.25) + 1;
+    const h = new Float64Array(nb);
+    for (const v of r) { const b = (v - lo) / 0.25; for (let j = Math.floor(b) - 3; j <= Math.floor(b) + 3; j++) if (j >= 0 && j < nb) h[j] += Math.exp(-0.5 * Math.pow((j - b) / 1.5, 2)); }
+    let bi = 0; for (let j = 1; j < nb; j++) if (h[j] > h[bi]) bi = j;
+    const cands = [lo + bi * 0.25];
+    for (let j = 1; j < nb - 1; j++) if (j !== bi && h[j] >= h[j - 1] && h[j] > h[j + 1] && h[j] >= 0.2 * h[bi]) cands.push(lo + j * 0.25);
+    // expected share of each level in this line (from its marks)
+    const share = { low: 0, mid: 0, high: 0 };
+    if (expLv) { expLv.forEach(l => share[l === 'held' ? 'high' : l]++); const n = expLv.length || 1; for (const k in share) share[k] /= n; }
+    let best = null, bestCost = Infinity;
+    cands.forEach((M0, ci) => {
+      const c = classifyAt(stats, times, idx, r, M0);
+      const got = { low: 0, mid: 0, high: 0 }; let n = 0;
+      c.obs.forEach(o => { if (o) { got[o]++; n++; } });
+      let cost = 0; if (expLv && n) for (const k in got) cost += Math.abs(got[k] / n - share[k]);
+      cost += ci === 0 ? 0 : 0.05; // slight preference for the main peak
+      if (cost < bestCost) { bestCost = cost; best = c; }
+    });
+    const spread = pct(r, 0.9) - pct(r, 0.1);
+    const maxDev = Math.max(0, ...best.d.filter(v => !isNaN(v)).map(v => -v), ...best.dpk.filter(v => !isNaN(v)));
+    return Object.assign(best, { flat: spread < 0.9 && maxDev < 0.8, spread, maxDev });
+  }
+
+  const LVL = { low: 0, mid: 1, high: 2, held: 2 };
+
+  // ---------- score one line given its syllable span ----------
+  function scoreLine(F, line, bounds, opt) {
+    const syl = line.syl, N = syl.length;
+    const stats = [], times = [];
+    for (let k = 0; k < N; k++) { stats.push(sylStats(F, bounds[k], bounds[k + 1])); times.push((bounds[k] + bounds[k + 1]) / 2 * FRAME_S); }
+    const C = classify(stats, times, syl.map(s => s.lv));
+    const per = [];
+    let wsum = 0, wok = 0, twoLevel = 0, unclear = 0;
+    const sung = !syl.some(x => x.lv !== 'mid' && !x.gum); // a sung verse with no svara marks (Guru prayer): levels are not judged
+    for (let k = 0; k < N; k++) {
+      const exp = syl[k].lv, o = C.flat ? (stats[k].ok ? 'mid' : null) : C.obs[k];
+      const w = syl[k].gum ? 0.5 : 1;
+      let ok = null;
+      if (o === null) unclear++;
+      else if (sung) { ok = true; wsum += w; wok += w; }
+      else {
+        const e = LVL[exp], ob = LVL[o];
+        ok = e === ob;
+        if (Math.abs(e - ob) === 2) twoLevel++;
+        wsum += w; if (ok) wok += w;
+      }
+      const ot = i => (F.idx ? F.idx[Math.min(i, F.n - 1)] + (i >= F.n ? 1 : 0) : i) * FRAME_S;
+      per.push({ k, exp, obs: o, ok, t0: ot(bounds[k]), t1: ot(bounds[k + 1]), d: (o === 'high' && C.dpk) ? C.dpk[k] : C.d[k] });
+    }
+    const svaraAcc = wsum ? wok / wsum : 0;
+    // timing
+    const dur = (bounds[N] - bounds[0]) * FRAME_S;
+    const mat = syl.reduce((s, x) => s + x.wt, 0);
+    const pace = dur / mat; // seconds per matra
+    const tim = { pace, notes: [] };
+    let timing = 100;
+    const refPace = opt && opt.refPace; // K. Suresh's seconds per matra for this line (from tapped times)
+    if (refPace) {
+      if (pace < refPace * 0.7) { timing -= 40; tim.notes.push('rushed'); }
+      else if (pace > refPace * 3.5) { timing -= 20; tim.notes.push('slow'); }
+    } else if (pace < 0.17) { timing -= 40; tim.notes.push('rushed'); } // K. Suresh chants about 0.25 s per matra
+    // long vs short
+    const ls = [], ss = [];
+    for (let k = 0; k < N; k++) { const L = (bounds[k + 1] - bounds[k]) * FRAME_S; if (syl[k].wt >= 2) ls.push(L); else if (!syl[k].gum) ss.push(L); }
+    if (ls.length >= 2 && ss.length >= 2 && median(ls) < median(ss) * 1.2) { timing -= 25; tim.notes.push('long'); }
+    // pause inside a word: a removed silence (>= 0.35 s) between two syllables of the same word
+    const inner = [];
+    for (let k = 0; k < N - 1; k++) {
+      if (syl[k].w !== syl[k + 1].w) continue;
+      const lo = Math.max(bounds[k + 1] - 4, bounds[k] + 1), hi = Math.min(bounds[k + 1] + 3, bounds[k + 2] - 1);
+      for (let c = lo; c <= hi; c++) if (F.gap && F.gap[c] + 4 >= 35) { inner.push(syl[k].w); break; }
+    }
+    const innerWords = [...new Set(inner)];
+    if (innerWords.length) { timing -= Math.min(2, innerWords.length) * 20; tim.notes.push('pause'); }
+    timing = Math.max(0, timing);
+    // svara points: 95%+ of syllables right = full marks; 60% or less (about what a wrong line gets) = none
+    const svaraPts = 100 * clamp((svaraAcc - 0.6) / 0.35, 0, 1);
+    let score = Math.round(0.7 * svaraPts + 0.3 * timing);
+    const target = (opt && opt.target) || 75;
+    const nMarked = syl.filter(s => s.lv !== 'mid' && !s.gum).length;
+    if (C.flat && nMarked >= 3 && score >= target - 10) score = target - 10;
+    if (twoLevel > 0 && score >= target) score = target - 1;
+    return { score, svaraAcc, svaraPts, timing, twoLevel, unclear, sung, flat: C.flat && !sung, per, pace, timingNotes: tim.notes, innerWords, spread: C.spread, cls: C };
+  }
+
+  // ---------- feedback text ----------
+  function comments(line, res) {
+    const out = [];
+    const words = line.words;
+    const wordOf = k => words[line.syl[k].w];
+    const sylName = k => line.syl[k].i;
+    if (res.sung) out.push('This line has no svara marks, so only its pace and completeness are checked.');
+    if (res.flat) out.push('Your chant was quite flat. Let the syllables marked below the line drop lower, and the ones marked above rise.');
+    const errs = res.per.filter(p => p.ok === false);
+    errs.sort((a, b) => Math.abs(LVL[b.exp] - LVL[b.obs]) - Math.abs(LVL[a.exp] - LVL[a.obs]));
+    for (const e of errs) {
+      if (out.length >= 2 || res.flat) break;
+      const where = `in “${wordOf(e.k)}”, “${sylName(e.k)}”`;
+      let msg;
+      if (e.exp === 'low') msg = `${where} should go low (it has the mark below).`;
+      else if (e.exp === 'high' || e.exp === 'held') msg = `${where} should rise (it has the mark above)${e.exp === 'held' ? ' and be held' : ''}.`;
+      else msg = e.obs === 'low' ? `${where} has no mark: keep it at your middle note, don’t drop.` : `${where} has no mark: keep it at your middle note, don’t rise.`;
+      out.push(msg.charAt(0).toUpperCase() + msg.slice(1));
+    }
+    if (out.length < 2 && res.timingNotes.includes('rushed')) out.push('You chanted faster than the teacher. Slow down and give each syllable its time.');
+    if (out.length < 2 && res.timingNotes.includes('pause')) out.push(`Don’t pause inside a word (“${words[res.innerWords[0]]}”). Breathe between words.`);
+    if (out.length < 2 && res.timingNotes.includes('long')) out.push('Hold the long vowels (ā, ī, ū, e, o) about twice as long as the short ones.');
+    if (out.length < 2 && res.timingNotes.includes('slow')) out.push('Try to keep the line flowing, a little closer to the teacher’s pace.');
+    if (!out.length) out.push('Good. The marked syllables went where they should.');
+    return out;
+  }
+
+  // ---------- top level ----------
+  function analyze(frames, lines, opt) {
+    opt = opt || {};
+    const F = features(frames);
+    const a = F.start, b = F.end;
+    const T = b - a;
+    const N = lines.reduce((s, l) => s + l.syl.length, 0);
+    const voicedFrac = (() => { let c = 0; for (let t = a; t < b; t++) c += F.voiced[t]; return T > 0 ? c / T : 0; })();
+    const base = { snr: F.snr, voicedFrac, dur: T * FRAME_S };
+    if (T * FRAME_S < 0.12 * N || T < 20) return Object.assign(base, { ok: false, reason: 'short' });
+    if (F.snr < 12) return Object.assign(base, { ok: false, reason: 'noisy' });
+    if (voicedFrac < 0.35) return Object.assign(base, { ok: false, reason: 'unvoiced' });
+    const Fc = compress(F, a, b);
+    const nc = nucleiCount(Fc, 0, Fc.n), ratio = nc / N;
+    base.nuclei = nc; base.ratio = ratio;
+    if (ratio < 0.55 || ratio > 1.6) return Object.assign(base, { ok: false, reason: 'count' });
+    const w = []; lines.forEach(l => l.syl.forEach(s => w.push(s.wt)));
+    // multi-line takes: first find the line boundaries (pauses are strong hints), then the syllables in each line
+    let lineB, whole = null;
+    let nGaps = 0; for (let c = 0; c < Fc.n; c++) if (Fc.gap[c] >= 20) nGaps++;
+    const fewPauses = nGaps < 0.5 * (lines.length - 1);
+    base.fewPauses = lines.length > 1 && fewPauses;
+    if (lines.length > 1 && (lines.length <= 6 || fewPauses)) {
+      // short multi-line takes: one syllable-level DP over the whole take copes best with changes of pace
+      const w = []; lines.forEach(l => l.syl.forEach(s => w.push(s.wt)));
+      whole = segment(Fc, 0, Fc.n, w, lines.length > 15 ? { band: Math.max(80, Math.round(Fc.n * 0.15)) } : {});
+      if (!whole) return Object.assign(base, { ok: false, reason: 'segment' });
+      lineB = [0]; let off = 0; lines.forEach(l => { off += l.syl.length; lineB.push(whole[off]); });
+    } else if (lines.length > 1) {
+      lineB = segmentLines(Fc, lines.map(l => l.syl.reduce((s, x) => s + x.wt, 0)));
+      if (!lineB) return Object.assign(base, { ok: false, reason: 'segment' });
+    } else lineB = [0, Fc.n];
+    const results = [];
+    for (let li = 0; li < lines.length; li++) {
+      const wl = lines[li].syl.map(s => s.wt);
+      const a0 = lineB[li], b0 = lineB[li + 1];
+      let bl;
+      if (whole) { let off = 0; for (let j = 0; j < li; j++) off += lines[j].syl.length; bl = whole.slice(off, off + wl.length + 1); }
+      else bl = (b0 - a0 >= wl.length * 2) ? segment(Fc, a0, b0, wl, {}) : null;
+      if (!bl) { // line too short in the take: spread evenly so it scores (badly) rather than failing the whole take
+        bl = []; const W = wl.reduce((x, y) => x + y, 0); let acc = 0; bl.push(a0);
+        wl.forEach(x => { acc += x; bl.push(Math.round(a0 + (b0 - a0) * acc / W)); });
+      }
+      const r = scoreLine(Fc, lines[li], bl, { target: opt.target, refPace: opt.refPaces ? opt.refPaces[li] : null });
+      r.comments = comments(lines[li], r);
+      r.label = lines[li].label;
+      results.push(r);
+    }
+    const score = Math.round(results.reduce((s, r) => s + r.score * r.per.length, 0) / N);
+    return Object.assign(base, { ok: true, score, lines: results, F: opt.keepFeatures ? F : undefined });
+  }
+
+  // Whole-recording line alignment (auto-marking line times in the reference video).
+  // frames: pitch-tracker frames; valid: optional Uint8Array (0 = ignore frame, e.g. an advert); lines: in chant order.
+  // Returns start/end frame indices (original frames) and, per start, whether it falls at a pause.
+  function alignLines(frames, lines, opt) {
+    opt = opt || {};
+    if (opt.valid) frames = frames.map((f, i) => opt.valid[i] ? f : { rms: 0, f0: 0, ap: 1 });
+    const F = features(frames);
+    // pauses in a produced recording are rarely silent (reverb, a drone): also count frames well below the local level
+    let quiet = null;
+    const rel = opt.relDip === undefined ? 12 : opt.relDip;
+    if (rel > 0) {
+      quiet = new Uint8Array(F.n);
+      const W = 150, step = 5;
+      for (let t = F.start; t < F.end; t++) {
+        if (t % 25 === 0 || !quiet.loc) {
+          const s = []; for (let j = Math.max(F.start, t - W); j < Math.min(F.end, t + W); j += step) s.push(F.E[j]);
+          quiet.loc = pct(s, 0.7);
+        }
+        if (F.E[t] < quiet.loc - rel) quiet[t] = 1;
+      }
+    }
+    const Fc = compress(F, F.start, F.end, { minGap: opt.minGap || 15, quiet });
+    const lw = lines.map(l => l.syl.reduce((s, x) => s + x.wt, 0));
+    const B = segmentLines(Fc, lw, { lambda: opt.lambda, gapBonus: opt.gapBonus });
+    if (!B) return { ok: false };
+    const N = lines.length;
+    // refine boundaries that do not fall at a pause: syllable-level DP over the two neighbouring lines
+    const isGapAt = c => (Fc.gap[c - 1] > 0 || Fc.gap[c - 2] > 0 || Fc.gap[c] > 0);
+    for (let k = 1; k < N; k++) {
+      if (isGapAt(B[k])) continue;
+      const w = lines[k - 1].syl.map(s => s.wt).concat(lines[k].syl.map(s => s.wt));
+      if (B[k + 1] - B[k - 1] < w.length * 2) continue;
+      const sb = segment(Fc, B[k - 1], B[k + 1], w, {});
+      if (sb) B[k] = sb[lines[k - 1].syl.length];
+    }
+    const starts = [], ends = [], atPause = [];
+    for (let k = 0; k < N; k++) {
+      const c0 = B[k], c1 = B[k + 1];
+      starts.push(Fc.idx[Math.min(c0, Fc.n - 1)]);
+      ends.push(Fc.idx[Math.max(c0, c1 - 1)] + 1);
+      atPause.push(k === 0 || (Fc.gap[c0 - 1] > 0 || Fc.gap[c0 - 2] > 0 || Fc.gap[c0] > 0));
+    }
+    return { ok: true, starts, ends, atPause, pauses: atPause.filter(Boolean).length };
+  }
+
+  const api = { SR, HOP, FRAME_S, makeResampler, PitchTracker, features, segment, analyze, alignLines, comments, median, pct, st };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.ChantEngine = api;
+})(typeof self !== 'undefined' ? self : this);
+
+</script><script>
+/* Saundarya Lahari trainer — scoring a take against Amma's recording of the same unit.
+ * Tune (45) = banded DTW of pitch contours (40 ms), key-free (offset from the path), octave-folded, open begin/end;
+ * Length and pace (25) = voiced time vs Amma's; Flow (15) = pauses vs Amma's; Rhythm (15) = evenness of the local tempo along the path.
+ * Works in the browser (window.TuneEngine) and in Node. Needs ChantEngine (engine.js). */
+(function (root) {
+  'use strict';
+  const CE = (typeof module !== 'undefined' && module.exports) ? require('./engine.js') : root.ChantEngine;
+  const BLOCK = 4;              // 4 x 10 ms = 40 ms contour hop
+  const HOPS = BLOCK * CE.FRAME_S;
+  const median = CE.median, clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+  const fold = d => d - 12 * Math.round(d / 12);
+
+  // long-window octave repair (YIN jumps an octave for runs of 30–60 frames on a female voice)
+  function octaveRepair(F) {
+    const idx = []; for (let i = 0; i < F.n; i++) if (F.voiced[i]) idx.push(i);
+    const p = idx.map(i => F.pitch[i]), out = Float64Array.from(p), W = 60;
+    for (let k = 0; k < p.length; k++) {
+      const w = p.slice(Math.max(0, k - W), Math.min(p.length, k + W + 1));
+      const m = median(w), d = p[k] - m;
+      if (Math.abs(d) > 7) out[k] = p[k] - 12 * Math.round(d / 12);
+    }
+    idx.forEach((i, k) => { F.pitch[i] = out[k]; });
+    return F;
+  }
+
+  // features -> 40 ms contour of voiced blocks: {v: semitones, t: block start time (s)}
+  function contour(F, a, b) {
+    a = a == null ? F.start : a; b = b == null ? F.end : b;
+    const v = [], t = [];
+    for (let i = a; i + BLOCK <= b; i += BLOCK) {
+      const w = []; for (let j = i; j < i + BLOCK; j++) if (F.voiced[j] && !isNaN(F.pitch[j])) w.push(F.pitch[j]);
+      if (w.length >= 2) { v.push(median(w)); t.push(i * CE.FRAME_S); }
+    }
+    return { v, t };
+  }
+
+  // pauses >= minS inside the active region (unvoiced and quiet)
+  function pauses(F, minS) {
+    const minF = Math.round((minS || 0.35) / CE.FRAME_S); let c = 0, run = 0;
+    for (let i = F.start; i < F.end; i++) {
+      const sil = !F.voiced[i] && F.E[i] < F.actGate + 4;
+      if (sil) run++; else { if (run >= minF) c++; run = 0; }
+    }
+    return c;
+  }
+  function nuclei(Fc) {
+    let c = 0, last = -100;
+    for (let i = Fc.start + 2; i < Fc.end - 2; i++) {
+      const v = Fc.E[i];
+      if (v >= Fc.E[i - 1] && v > Fc.E[i + 1] && v >= Fc.E[i - 2] && v >= Fc.E[i + 2] && Fc.voiced[i]) {
+        let lm = v, rm = v;
+        for (let j = i - 1; j >= Math.max(Fc.start, i - 150) && Fc.E[j] <= v; j--) lm = Math.min(lm, Fc.E[j]);
+        for (let j = i + 1; j < Math.min(Fc.end, i + 150) && Fc.E[j] <= v; j++) rm = Math.min(rm, Fc.E[j]);
+        if (v - Math.max(lm, rm) >= 2.5 && i - last >= 7) { c++; last = i; }
+      }
+    }
+    return c;
+  }
+  const voicedSeconds = F => { let c = 0; for (let i = F.start; i < F.end; i++) c += F.voiced[i]; return c * CE.FRAME_S; };
+
+  // banded DTW on the time-normalised diagonal, open begin/end (first/last 12% of either sequence)
+  function dtw(a, r, off, opt) {
+    opt = opt || {};
+    const la = a.length, lr = r.length, g = la / lr;
+    const band = Math.max(25, Math.round((opt.band || 0.15) * Math.max(la, lr)));
+    const open = opt.open == null ? 0.12 : opt.open;
+    const PEN = opt.pen != null ? opt.pen : 1.5, CAP = 4, INF = 1e18;
+    const lo = new Int32Array(la), hi = new Int32Array(la);
+    for (let i = 0; i < la; i++) { const c = Math.round(i / g); lo[i] = Math.max(0, c - band); hi[i] = Math.min(lr - 1, c + band); }
+    const width = Math.max(...Array.from(hi).map((h, i) => h - lo[i] + 1));
+    const dir = new Uint8Array(la * width);           // 1 diag, 2 up (i-1), 3 left (j-1), 4 start
+    const len = new Float32Array(width), lenP = new Float32Array(width);
+    let prev = new Float64Array(width).fill(INF), cur = new Float64Array(width).fill(INF);
+    const openA = Math.round(open * la), openR = Math.round(open * lr);
+    let endBest = { m: INF, i: -1, j: -1 };
+    for (let i = 0; i < la; i++) {
+      cur.fill(INF);
+      for (let j = lo[i]; j <= hi[i]; j++) {
+        const k = j - lo[i];
+        const c = Math.min(CAP, Math.abs(fold(a[i] - off - r[j])));
+        let best = INF, d = 0, L = 0;
+        // diagonal
+        if (i > 0 && j > 0 && j - 1 >= lo[i - 1] && j - 1 <= hi[i - 1]) { const p = prev[j - 1 - lo[i - 1]]; if (p < best) { best = p; d = 1; L = lenP[j - 1 - lo[i - 1]]; } }
+        if (i > 0 && j >= lo[i - 1] && j <= hi[i - 1]) { const p = prev[j - lo[i - 1]] + PEN; if (p < best) { best = p; d = 2; L = lenP[j - lo[i - 1]]; } }
+        if (k > 0) { const p = cur[k - 1] + PEN; if (p < best) { best = p; d = 3; L = len[k - 1]; } }
+        if ((i === 0 && j <= openR) || (j === 0 && i <= openA)) { if (0 < best || d === 0) { best = 0; d = 4; L = 0; } }
+        if (best >= INF) continue;
+        cur[k] = best + c; dir[i * width + k] = d; len[k] = L + 1;
+      }
+      // open end on the take's side: the last reference block reached before the take ends
+      if (i >= la - 1 - openA && hi[i] === lr - 1) { const k = lr - 1 - lo[i]; if (cur[k] < INF) { const m = cur[k] / Math.max(1, len[k]); if (m < endBest.m) endBest = { m, i, j: lr - 1 }; } }
+      // keep the row's lengths for the next row
+      const t = prev; prev = cur; cur = t;
+      lenP.set(len); len.fill(0);
+    }
+    // end: last row (i = la-1, j >= lr-1-openR) or last column (j = lr-1, i >= la-1-openA): pick the lowest mean cost
+    // (we only kept the last row; for the last column recompute cheaply by re-running is costly, so use the last row,
+    //  and allow i to end early by trimming a's tail when the take has extra sound at the end)
+    let bj = -1, bm = INF;
+    for (let j = Math.max(lo[la - 1], lr - 1 - openR); j <= hi[la - 1]; j++) { const k = j - lo[la - 1]; const m = prev[k] / Math.max(1, lenP[k]); if (prev[k] < INF && m < bm) { bm = m; bj = j; } }
+    let bi = la - 1;
+    if (endBest.i >= 0 && endBest.m < bm) { bm = endBest.m; bi = endBest.i; bj = endBest.j; }
+    if (bj < 0) return null;
+    // backtrack
+    const path = []; let i = bi, j = bj;
+    while (i >= 0 && j >= 0) {
+      path.push([i, j]);
+      const d = dir[i * width + (j - lo[i])];
+      if (d === 4 || d === 0) break;
+      if (d === 1) { i--; j--; } else if (d === 2) i--; else j--;
+    }
+    path.reverse();
+    return path;
+  }
+
+  function align(a, r, opt) {
+    let off = median(a) - median(r);
+    let path = null;
+    for (let it = 0; it < 2; it++) {
+      path = dtw(a, r, off, opt);
+      if (!path) return null;
+      const ds = path.map(([i, j]) => fold(a[i] - off - r[j]) + off);
+      off = median(ds);
+    }
+    path = dtw(a, r, off, opt);
+    if (!path) return null;
+    const dev = path.map(([i, j]) => Math.min(4, Math.abs(fold(a[i] - off - r[j]))));
+    // movement-weighted: only where Amma leaves her reciting note (|r - median| >= 1.5 st)
+    const mr = median(r); let md = 0, mm = 0, mc = 0;
+    path.forEach(([i, j], k) => { const m = Math.abs(r[j] - mr); if (m >= 1.5) { md += dev[k]; mm += m; mc++; } });
+    return { path, off, dev, meanDev: dev.reduce((s, x) => s + x, 0) / dev.length, moveRatio: mc ? md / mm : 0, moveShare: mc / path.length };
+  }
+
+  // reference: { v: [...] contour (null = unvoiced block dropped already), voicedS, pauses, nuclei, move, lineAt: [start index of each line in v] }
+  function score(frames, ref, unit, opt) {
+    opt = opt || {};
+    let F = CE.features(frames);
+    const T = F.end - F.start;
+    const base = { snr: F.snr, dur: T * CE.FRAME_S };
+    const vf = (() => { let c = 0; for (let t = F.start; t < F.end; t++) c += F.voiced[t]; return T > 0 ? c / T : 0; })();
+    base.voicedFrac = vf;
+    if (T * CE.FRAME_S < Math.max(4, 0.25 * ref.voicedS)) return Object.assign(base, { ok: false, reason: 'short' });
+    if (F.snr < 12) return Object.assign(base, { ok: false, reason: 'noisy' });
+    if (vf < 0.3) return Object.assign(base, { ok: false, reason: 'unvoiced' });
+    F = octaveRepair(F);
+    const C = contour(F);
+    if (C.v.length < 30) return Object.assign(base, { ok: false, reason: 'short' });
+    const A = align(C.v, ref.v, opt);
+    if (!A) return Object.assign(base, { ok: false, reason: 'align' });
+    const r = ref.v, lr = r.length, la = C.v.length;
+    // tune: deviation relative to how much Amma's tune moves (Amma vs herself ~0.07; Amma's other verses 0.47–0.89; Anu 27 Oct 0.41–0.59; flat ~0.73)
+    const ratio = A.meanDev / Math.max(0.8, ref.move);
+    const hiR = opt.tuneHi || 0.6, loR = 0.25 + (hiR - 0.6) * 0.5;
+    const tune = 100 * clamp((hiR - ratio) / (hiR - loR), 0, 1);   // calibrated 27 Oct: Anu's take ("tries to follow but cannot", Vijay) sits at 0.51
+    const j0 = A.path[0][1], j1 = A.path[A.path.length - 1][1];
+    const cover = (j1 - j0 + 1) / lr;
+    const nuc = nuclei(F), nucRatio = ref.nuclei ? nuc / ref.nuclei : 1;
+    // length and pace: voiced time vs Amma's (catches a part left out, and rushing or dragging)
+    const vs = voicedSeconds(F), pace = vs / ref.voicedS;
+    const pacePts = pace >= 0.8 && pace <= 1.35 ? 100 : pace < 0.8 ? 100 * clamp((pace - 0.55) / 0.25, 0, 1) : 100 * clamp((2.0 - pace) / 0.65, 0, 1);
+    // flow: many more breaks than Amma
+    const pz = pauses(F), pzAllowed = Math.round(ref.pauses * 1.5) + 3 + (unit.lines ? Math.round(unit.lines.length / 2) : 0);
+    const pausePts = 100 * clamp(1 - (pz - pzAllowed) / 8, 0, 1);
+    // rhythm: local tempo along the path (windows of 25 reference blocks = 1 s) relative to the overall tempo
+    const g = (A.path[A.path.length - 1][0] - A.path[0][0] + 1) / (j1 - j0 + 1);
+    const W = 25, slopes = [], winAt = [];
+    let s0 = 0;
+    for (let k = 0; k < A.path.length; k++) {
+      if (A.path[k][1] - A.path[s0][1] >= W) {
+        const di = A.path[k][0] - A.path[s0][0], dj = A.path[k][1] - A.path[s0][1];
+        slopes.push(Math.log(Math.max(0.2, di / dj) / g)); winAt.push(A.path[s0][1]); s0 = k;
+      }
+    }
+    const sd = slopes.length > 2 ? Math.sqrt(slopes.reduce((s, x) => s + x * x, 0) / slopes.length) : 0;
+    const rhythm = 100 * clamp((0.9 - sd) / (0.9 - 0.3), 0, 1);
+    const complete = pacePts;
+    // per-line deviation (lines located proportionally in Amma's contour)
+    const lineAt = ref.lineAt || [0];
+    const lineOf = j => { let L = 0; while (L + 1 < lineAt.length && lineAt[L + 1] <= j) L++; return L; };
+    const nL = lineAt.length, ldev = new Array(nL).fill(0), lcnt = new Array(nL).fill(0), lfast = new Array(nL).fill(0), lslow = new Array(nL).fill(0), lw = new Array(nL).fill(0);
+    A.path.forEach(([i, j], k) => { const L = lineOf(j); ldev[L] += A.dev[k]; lcnt[L]++; });
+    slopes.forEach((s, k) => { const L = lineOf(winAt[k]); lw[L]++; if (s < -0.35) lfast[L]++; if (s > 0.35) lslow[L]++; });
+    const lines = ldev.map((d, L) => ({ dev: lcnt[L] ? d / lcnt[L] : null, ratio: lcnt[L] ? (d / lcnt[L]) / Math.max(0.8, ref.move) : null, fast: lw[L] ? lfast[L] / lw[L] : 0, slow: lw[L] ? lslow[L] / lw[L] : 0, covered: lcnt[L] > 0 }));
+    let total = Math.round(0.45 * tune + 0.25 * pacePts + 0.15 * pausePts + 0.15 * rhythm);
+    const target = opt.target || 75;
+    if ((pace < 0.6 || cover < 0.55) && total >= target) total = target - 10;      // a half take never passes
+    if (tune < 60 && total >= target) total = target - 5;         // the tune must be recognisably Amma's
+    const res = Object.assign(base, { ok: true, moveRatio: A.moveRatio, moveShare: A.moveShare, score: total, parts: { tune: Math.round(tune), complete: Math.round(complete), pauses: Math.round(pausePts), pace: Math.round(pacePts), rhythm: Math.round(rhythm) },
+      meanDev: A.meanDev, ratio, off: A.off, cover, nucRatio, pace, pz, pzAllowed, sd, lines, path: A.path, mine: C.v });
+    res.comments = comments(res, unit, ref);
+    return res;
+  }
+
+  function lineName(unit, L) {
+    if (!unit.lines || !unit.lines.length) return ['the beginning', 'the middle', 'the end'][L] || 'one part';
+    if (!unit.lines[L]) return 'one part';
+    const x = unit.lines[L];
+    if (unit.verses.length > 1) return `verse ${x.verse}`;
+    return x.n <= 2 ? 'the first half of the verse' : 'the second half of the verse';
+  }
+  function comments(res, unit, ref) {
+    const out = [];
+    if (res.pace < 0.75) out.push('Your take was much shorter than Amma\'s. Did you chant all of it? If so, slow down and give each syllable its time.');
+    if (res.parts.tune < 60) {
+      let worst = -1, wr = 0; res.lines.forEach((l, L) => { if (l.covered && l.ratio > wr) { wr = l.ratio; worst = L; } });
+      out.push(worst >= 0 ? `Your tune moved differently from Amma's, most of all around ${lineName(unit, worst)}. Listen to that part again and follow her rise and fall.` : 'Your tune moved differently from Amma\'s. Listen again and follow her rise and fall.');
+    } else if (res.parts.tune < 85 && out.length < 2) {
+      let worst = -1, wr = 0; res.lines.forEach((l, L) => { if (l.covered && l.ratio > wr) { wr = l.ratio; worst = L; } });
+      if (worst >= 0 && wr > 0.75) out.push(`Mostly in tune. Around ${lineName(unit, worst)} your tune drifted from Amma's — listen there once more.`);
+    }
+    if (out.length < 2 && res.parts.pace < 70 && res.pace >= 0.75) out.push(res.pace < 0.8 ? 'You chanted much faster than Amma. Slow down and give each syllable its time.' : 'You chanted much more slowly than Amma. Try to keep each line flowing.');
+    if (out.length < 2 && res.parts.rhythm < 60) {
+      let L = -1, m = 0; res.lines.forEach((l, k) => { const x = Math.max(l.fast, l.slow); if (x > m) { m = x; L = k; } });
+      if (L >= 0) out.push(res.lines[L].fast >= res.lines[L].slow ? `Around ${lineName(unit, L)} you hurried compared with Amma. Take the time she takes there.` : `Around ${lineName(unit, L)} you lingered compared with Amma. Keep the flow even.`);
+    }
+    if (out.length < 2 && res.parts.pauses < 60) out.push('You stopped more often than Amma. Breathe at the end of a line, not in the middle.');
+    if (!out.length) out.push(res.score >= 90 ? 'Beautiful — very close to Amma.' : 'Good. Your chant follows Amma closely.');
+    return out;
+  }
+
+  const api = { BLOCK, HOPS, nuclei, contour, octaveRepair, pauses, voicedSeconds, dtw, align, score, comments, fold };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.TuneEngine = api;
+})(typeof self !== 'undefined' ? self : this);
+
+</script><script>
+/* Shared pieces for the Saundarya Lahari trainer: Amma's audio player, the microphone recorder, small helpers.
+ * Nothing here reads or writes the Rudram app's storage (keys starting anuRudram.). */
+(function () {
+  'use strict';
+  const E = window.ChantEngine;
+
+  // ---------------- Amma's recordings ----------------
+  // One <audio> element for the whole page; iOS needs play() to be called inside the tap itself.
+  class AmmaPlayer {
+    constructor(onState) {
+      this.el = document.createElement('audio');
+      this.el.preload = 'none';
+      this.el.setAttribute('playsinline', '');
+      try { this.el.preservesPitch = true; this.el.webkitPreservesPitch = true; } catch (e) {}
+      this.onState = onState || (() => {});
+      this.unit = null; this.rate = 1;
+      this.el.addEventListener('timeupdate', () => this.onState('time', this.el.currentTime, this.el.duration || 0));
+      this.el.addEventListener('ended', () => this.onState('ended'));
+      this.el.addEventListener('pause', () => this.onState('pause'));
+      this.el.addEventListener('playing', () => { this.el.playbackRate = this.rate; this.onState('playing'); });
+      this.el.addEventListener('error', () => this.onState('error', this.el.error ? this.el.error.code : 0));
+      this.el.addEventListener('waiting', () => this.onState('waiting'));
+      document.body.appendChild(this.el);
+    }
+    // must be called from a tap handler
+    // prepare(unitId) loads and decrypts Amma's recording before the tap (iOS needs play() inside the tap itself)
+    async prepare(unitId) {
+      this.want = unitId;
+      if (this.ready === unitId) return;
+      this.urls = this.urls || {};
+      if (!this.urls[unitId]) this.urls[unitId] = await Vault.audioURL('a/' + unitId + '.bin');
+      if (this.want !== unitId) return; // a newer prepare() (another part opened meanwhile) owns the element
+      this.el.src = this.urls[unitId]; this.unit = unitId; this.ready = unitId;
+    }
+    play(unitId, rate, fromStart) {
+      this.rate = rate || 1;
+      if (this.ready !== unitId) { this.onState('error', 'not loaded'); return; }
+      if (fromStart) { try { this.el.currentTime = 0; } catch (e) {} }
+      const p = this.el.play();
+      this.el.playbackRate = this.rate;
+      if (p && p.catch) p.catch(err => this.onState('error', err && err.name));
+    }
+    setRate(r) { this.rate = r; this.el.playbackRate = r; }
+    pause() { try { this.el.pause(); } catch (e) {} }
+    stop() { try { this.el.pause(); this.el.currentTime = 0; } catch (e) {} }
+    get playing() { return !this.el.paused && !this.el.ended; }
+  }
+
+
+  // ---------------- the vault: Amma's audio and reference data are stored encrypted (AES-GCM, key from a passphrase) ----------------
+  const VKEY = 'anuSL.key';
+  const b64 = { enc: u8 => btoa(String.fromCharCode.apply(null, Array.from(u8))), dec: s => Uint8Array.from(atob(s), c => c.charCodeAt(0)) };
+  const Vault = {
+    key: null,
+    async load() {
+      if (this.key) return true;
+      let raw = null; try { raw = localStorage.getItem(VKEY); } catch (e) {}
+      if (!raw) return false;
+      try { const k = await crypto.subtle.importKey('raw', b64.dec(raw), 'AES-GCM', false, ['decrypt']); await this._dec(k, b64.dec(window.VAULT.check)); this.key = k; return true; } catch (e) { return false; }
+    },
+    async unlock(pass) {
+      const V = window.VAULT;
+      const base = await crypto.subtle.importKey('raw', new TextEncoder().encode(pass.trim().toLowerCase()), 'PBKDF2', false, ['deriveKey']);
+      const k = await crypto.subtle.deriveKey({ name: 'PBKDF2', salt: b64.dec(V.salt), iterations: V.iter, hash: 'SHA-256' }, base, { name: 'AES-GCM', length: 256 }, true, ['decrypt']);
+      // check against the small test file
+      await this._dec(k, b64.dec(V.check));
+      const raw = new Uint8Array(await crypto.subtle.exportKey('raw', k));
+      this.key = await crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
+      try { localStorage.setItem(VKEY, b64.enc(raw)); } catch (e) {}
+      return true;
+    },
+    async _dec(k, buf) { const iv = buf.slice(0, 12), ct = buf.slice(12); return new Uint8Array(await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, k, ct)); },
+    async get(path) {
+      const r = await fetch(path, { cache: 'force-cache' });
+      if (!r.ok) throw new Error('Could not load ' + path + ' (' + r.status + '). Check the internet connection.');
+      return this._dec(this.key, new Uint8Array(await r.arrayBuffer()));
+    },
+    async json(path) { return JSON.parse(new TextDecoder().decode(await this.get(path))); },
+    async audioURL(path) { return URL.createObjectURL(new Blob([await this.get(path)], { type: 'audio/mp4' })); },
+    forget() { this.key = null; try { localStorage.removeItem(VKEY); } catch (e) {} }
+  };
+
+  // ---------------- microphone recorder ----------------
+  const WORKLET = `class Cap extends AudioWorkletProcessor{constructor(){super();this.b=new Float32Array(2048);this.n=0}process(i){const c=i[0]&&i[0][0];if(c){for(let k=0;k<c.length;k++){this.b[this.n++]=c[k];if(this.n===2048){this.port.postMessage(this.b.slice(0));this.n=0}}}return true}}registerProcessor('cap',Cap);`;
+  class Recorder {
+    constructor() { this.ctx = null; this.mode = null; this.rates = []; }
+    async start(onFrame) {
+      if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) throw new Error('This browser cannot use the microphone here. Open the page in Safari (iPhone) or Chrome (Mac).');
+      // ask for the microphone first, then make the audio context (its sample rate follows the input route)
+      this.stream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false, channelCount: 1 } });
+      const AC = window.AudioContext || window.webkitAudioContext;
+      if (!this.ctx || this.ctx.state === 'closed') { this.ctx = new AC(); this._wk = false; }
+      await this.ctx.resume();
+      this.rates.push(this.ctx.sampleRate);
+      this.src = this.ctx.createMediaStreamSource(this.stream);
+      this.rs = E.makeResampler(this.ctx.sampleRate);
+      this.pt = new E.PitchTracker();
+      this.peak = 0;
+      const handle = chunk => {
+        let m = 0; for (let i = 0; i < chunk.length; i++) { const v = Math.abs(chunk[i]); if (v > m) m = v; }
+        this.peak = Math.max(m, this.peak * 0.9);
+        const before = this.pt.frames.length;
+        this.pt.push(this.rs(chunk));
+        if (onFrame) for (let i = before; i < this.pt.frames.length; i++) onFrame(this.pt.frames[i], i, this.peak);
+      };
+      this.sink = this.ctx.createGain(); this.sink.gain.value = 0; this.sink.connect(this.ctx.destination);
+      let ok = false;
+      if (this.ctx.audioWorklet && window.AudioWorkletNode) {
+        try {
+          if (!this._wk) { const url = URL.createObjectURL(new Blob([WORKLET], { type: 'application/javascript' })); await this.ctx.audioWorklet.addModule(url); this._wk = true; }
+          this.node = new AudioWorkletNode(this.ctx, 'cap'); this.node.port.onmessage = ev => handle(ev.data);
+          this.src.connect(this.node); this.node.connect(this.sink); ok = true; this.mode = 'worklet';
+        } catch (e) { ok = false; }
+      }
+      if (!ok) {
+        this.node = this.ctx.createScriptProcessor(2048, 1, 1);
+        this.node.onaudioprocess = ev => handle(new Float32Array(ev.inputBuffer.getChannelData(0)));
+        this.src.connect(this.node); this.node.connect(this.sink); this.mode = 'script';
+      }
+      return this.mode;
+    }
+    async stop() {
+      try { this.src && this.src.disconnect(); this.node && this.node.disconnect(); } catch (e) {}
+      if (this.stream) this.stream.getTracks().forEach(t => t.stop()); // release the mic before any playback (iOS)
+      this.stream = null;
+      this.lastRate = this.ctx ? this.ctx.sampleRate : 0;
+      try { await this.ctx.close(); } catch (e) {}   // closing (not suspending) lets iOS return to normal playback
+      this.ctx = null; this._wk = false;
+      return this.pt ? this.pt.frames : [];
+    }
+    get sampleRate() { return this.ctx ? this.ctx.sampleRate : (this.lastRate || 0); }
+  }
+
+  // ---------------- tune graph (SVG): Amma's contour and the take, aligned ----------------
+  function tuneGraph(ref, res, unit) {
+    const W = 680, H = 170, pad = 8;
+    const r = ref.v, n = r.length; if (!n) return '';
+    const med = E.median(r);
+    const lo = med - 9, hi = med + 9;
+    const X = j => pad + (W - 2 * pad) * j / (n - 1), Y = s => H - pad - (H - 2 * pad) * (Math.max(lo, Math.min(hi, s)) - lo) / (hi - lo);
+    let g = '';
+    // verse boundaries
+    const step = Math.max(1, Math.floor(n / 340));
+    let pts = '';
+    for (let j = 0; j < n; j += step) pts += `<circle cx="${X(j).toFixed(1)}" cy="${Y(r[j]).toFixed(1)}" r="2.2" fill="var(--muted)" opacity=".55"/>`;
+    g += pts;
+    if (res && res.path) {
+      const P = res.path, s2 = Math.max(1, Math.floor(P.length / 340));
+      for (let k = 0; k < P.length; k += s2) {
+        const [i, j] = P[k]; const v = res.mine[i] - res.off; const fd = window.TuneEngine.fold(v - r[j]); const d = Math.abs(fd);
+        g += `<circle cx="${X(j).toFixed(1)}" cy="${Y(r[j] + fd).toFixed(1)}" r="2.6" fill="${d < 1.5 ? 'var(--ok)' : 'var(--bad)'}"/>`;
+      }
+    }
+    const px = Math.max(330, Math.round(n * 0.35));
+    return `<div class="stafwrap"><svg viewBox="0 0 ${W} ${H}" width="${px}" height="${Math.round(px * H / W)}" style="background:var(--lane);border-radius:10px" role="img" aria-label="Amma's tune and yours">${g}</svg></div>`;
+  }
+
+  function esc(t) { return String(t).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch])); }
+  const fmt = s => { s = Math.max(0, Math.round(s)); return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0'); };
+  window.Shared = { AmmaPlayer, Recorder, Vault, tuneGraph, esc, fmt };
+})();
+
+</script><script>
+/* Saundarya Lahari with Amma — the learner's app. */
+window.startApp = function () {
+  'use strict';
+  const TE = window.TuneEngine, S = window.Shared, { esc, fmt } = S;
+  const C = window.COURSE;
+  const KEY = 'anuSL.v1';
+  const $ = sel => document.querySelector(sel);
+  const app = $('#app');
+
+  // ---------------- state (this app's own key only) ----------------
+  const fresh = () => ({ v: 1, units: {}, done: [], reviewAt: 0, reviews: [], settings: { target: 75, speed: 1, iast: true, teacher: false, tuneHi: 0.6 }, lastExport: 0, created: Date.now() });
+  let st;
+  try { st = JSON.parse(localStorage.getItem(KEY) || 'null') || fresh(); } catch (e) { st = fresh(); }
+  // fill missing fields and coerce types (also for a pasted progress code: a missing or non-numeric pass mark would block passing and is rendered into HTML)
+  function normalise() {
+    const f = fresh();
+    st.settings = Object.assign(f.settings, st.settings || {});
+    const t = Math.round(+st.settings.target); st.settings.target = t >= 50 && t <= 95 ? t : 75;
+    st.settings.speed = [1, 0.85, 0.7].includes(+st.settings.speed) ? +st.settings.speed : 1;
+    st.settings.tuneHi = [0.6, 0.75, 0.9].includes(+st.settings.tuneHi) ? +st.settings.tuneHi : 0.6;
+    if (!st.units || typeof st.units !== 'object') st.units = {};
+    Object.keys(st.units).forEach(k => { const x = st.units[k]; if (!x || typeof x !== 'object') { delete st.units[k]; return; } x.a = Array.isArray(x.a) ? x.a.filter(n => typeof n === 'number') : []; });
+    st.done = Array.isArray(st.done) ? st.done.filter((id, i, a) => C.units.some(u => u.id === id) && a.indexOf(id) === i) : [];
+    st.reviewAt = Math.max(0, Math.min(st.done.length, +st.reviewAt || 0));
+    if (!Array.isArray(st.reviews)) st.reviews = [];
+  }
+  normalise();
+  let storageOK = true;
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(st)); } catch (e) { storageOK = false; } }
+  const U = id => (st.units[id] = st.units[id] || { a: [], passed: false, ear: false, listens: 0 });
+  const target = () => st.settings.target;
+  const unitById = Object.fromEntries(C.units.map((u, i) => [u.id, Object.assign(u, { idx: i })]));
+  const passed = id => { const s = st.units[id]; return !!(s && (s.passed || s.ear)); };
+  const refs = {};
+  async function loadRef(id) {
+    if (refs[id]) return refs[id];
+    return (refs[id] = await S.Vault.json('r/' + id + '.bin'));
+  }
+
+  // ---------------- next step ----------------
+  function nextStep() {
+    if (st.done.length - st.reviewAt >= 5) return { kind: 'review', units: st.done.slice(st.reviewAt, st.reviewAt + 5) };
+    const u = C.units.find(x => x.verses.length && !passed(x.id));
+    if (u) return { kind: 'learn', unit: u.id };
+    return { kind: 'free' };
+  }
+  function stepTitle(n) {
+    if (n.kind === 'review') return 'Review: chant your last 5 parts, one after another';
+    if (n.kind === 'learn') return 'Learn ' + unitById[n.unit].title;
+    return 'You have learned the whole Saundarya Lahari. Practise any part you like.';
+  }
+
+  // ---------------- one player, one recorder ----------------
+  let onPlayer = () => {};
+  const player = new S.AmmaPlayer((k, a, b) => onPlayer(k, a, b));
+  const rec = new S.Recorder();
+  let recording = false, takeToken = 0, wake = null;
+  function leave() { takeToken++; if (recording) { recording = false; rec.stop(); } try { wake && wake.release(); } catch (e) {} wake = null; player.stop(); onPlayer = () => {}; window.scrollTo(0, 0); }
+
+  function listenBox(unitId) {
+    const sp = st.settings.speed;
+    return `<div class="card"><div class="spread"><b>Listen to Amma</b><span class="small muted" id="ptime">0:00</span></div>
+      <div class="bar" style="margin:8px 0"><i id="pbar" style="width:0"></i></div>
+      <div class="row"><button class="primary" id="play" style="flex:1">▶ Play</button><button id="restart">⟲ From the start</button></div>
+      <div class="row" style="margin-top:8px"><span class="small muted">Speed</span>${[1, 0.85, 0.7].map(x => `<button class="chip ${x === sp ? 'on' : ''}" data-speed="${x}">${x === 1 ? 'Normal' : x === 0.85 ? 'A little slower' : 'Slow'}</button>`).join('')}</div>
+      <p class="small muted" id="pmsg"></p></div>`;
+  }
+  function bindListen(unitId) {
+    const play = $('#play');
+    onPlayer = (k, a, b) => {
+      if (k === 'time') { const pb = $('#pbar'), pt = $('#ptime'); if (pb && b) pb.style.width = (100 * a / b).toFixed(1) + '%'; if (pt) pt.textContent = fmt(a) + (b ? ' / ' + fmt(b) : ''); }
+      if (k === 'playing') { if (play) play.textContent = '❚❚ Pause'; const m = $('#pmsg'); if (m) m.textContent = ''; }
+      if (k === 'pause' || k === 'ended') { if (play) play.textContent = '▶ Play'; }
+      if (k === 'ended') { const s = U(unitId); s.listens++; save(); }
+      if (k === 'waiting') { const m = $('#pmsg'); if (m) m.textContent = 'Loading…'; }
+      if (k === 'error') { const m = $('#pmsg'); if (m) m.innerHTML = '<span class="bad">Amma\'s recording did not play (' + esc(a) + '). Check the internet connection and the silent switch, then tap Play again.</span>'; if (play) play.textContent = '▶ Play'; }
+    };
+    play.disabled = true; $('#restart').disabled = true; $('#pmsg').textContent = 'Loading Amma\'s recording…';
+    player.prepare(unitId).then(() => { if (!document.body.contains(play)) return; play.disabled = false; $('#restart').disabled = false; $('#pmsg').textContent = ''; loadRef(unitId).catch(() => {}); })
+      .catch(e => { const m = $('#pmsg'); if (m) m.innerHTML = '<span class="bad">' + esc(e.message || String(e)) + '</span>'; });
+    play.onclick = () => { if (recording) return; if (player.playing && player.unit === unitId) player.pause(); else player.play(unitId, st.settings.speed, false); };
+    $('#restart').onclick = () => { if (recording) return; player.play(unitId, st.settings.speed, true); };
+    app.querySelectorAll('[data-speed]').forEach(b => b.onclick = () => { st.settings.speed = +b.dataset.speed; save(); player.setRate(st.settings.speed); app.querySelectorAll('[data-speed]').forEach(x => x.classList.toggle('on', +x.dataset.speed === st.settings.speed)); });
+  }
+
+  // ---------------- text ----------------
+  function textBlock(u) {
+    if (!u.verses.length) return `<div class="card"><p>The opening meditation (<i>dhyānam</i>) that Amma chants before the hymn. It is not in the printed text of the hymn, so there is no text here: listen, and chant along with her.</p></div>`;
+    return u.verses.map(v => {
+      const V = C.verses[v], L = u.lines.filter(l => l.verse === v);
+      return `<div class="card"><div class="spread"><span class="label">Verse ${v}</span><span class="small muted">${esc(V.title)}</span></div>
+        ${L.map(l => `<div class="deva sm" style="margin-top:4px">${esc(l.deva)}</div>${st.settings.iast ? `<div class="iast">${esc(l.iast)}</div>` : ''}`).join('')}
+        <details style="margin-top:8px"><summary><span class="chev">›</span> <b>Meaning</b></summary><p>${md(V.meaning)}</p>${V.note ? `<p class="small muted"><b>Text note.</b> ${md(V.note)}</p>` : ''}</details>
+        <details><summary><span class="chev">›</span> <b>Commentary</b></summary>${V.commentary.split('\n\n').map(p => '<p class="small">' + md(p) + '</p>').join('')}</details></div>`;
+    }).join('');
+  }
+  const md = t => esc(t).replace(/\*([^*]+)\*/g, '<i>$1</i>');
+
+  // ---------------- recording a take ----------------
+  function recorderUI(container, unitId, onResult) {
+    container.innerHTML = `<button class="rec big" id="recbtn">● Record yourself</button>
+      <div id="recpanel" class="hidden"><div class="spread"><span><b class="bad">● Recording</b> <span class="muted small" id="rectime">0:00</span></span><span class="muted small">Tap Done when you finish</span></div>
+      <div class="meter" style="margin:8px 0"><i id="lvl"></i></div><p class="small muted">Chant all of it, as Amma does. Breathe at the end of a line.</p><button class="primary big" id="donebtn">■ Done</button></div>
+      <p id="recmsg" class="small"></p>`;
+    const btn = container.querySelector('#recbtn'), panel = container.querySelector('#recpanel'), msg = container.querySelector('#recmsg');
+    btn.onclick = async () => {
+      if (recording || btn.disabled) return;
+      btn.disabled = true;
+      const my = ++takeToken;
+      player.stop();
+      msg.textContent = '';
+      let ref;
+      try { ref = await loadRef(unitId); } catch (e) { btn.disabled = false; msg.innerHTML = '<span class="bad">' + esc(e.message) + '</span>'; return; }
+      let finishing = false, timer = null;
+      async function finish() {
+        if (finishing || my !== takeToken) return; finishing = true;
+        clearInterval(timer);
+        recording = false;
+        const frames = await rec.stop();
+        try { wake && wake.release(); } catch (e) {} wake = null;
+        if (my !== takeToken) return;
+        panel.classList.add('hidden'); btn.classList.remove('hidden'); btn.disabled = false;
+        msg.textContent = 'Comparing with Amma… (a few seconds)';
+        setTimeout(() => {
+          if (my !== takeToken) return;
+          let res;
+          try { res = TE.score(frames, ref, unitById[unitId], { target: target(), tuneHi: st.settings.tuneHi }); }
+          catch (e) { res = { ok: false, reason: 'error', error: String(e) }; }
+          res.sampleRate = rec.sampleRate;
+          msg.textContent = '';
+          onResult(res, ref);
+        }, 40);
+      }
+      try {
+        recording = true;
+        await rec.start((f, i, peak) => { if (my !== takeToken) return; if (i % 4 === 0) { const el = $('#lvl'); if (el) el.style.width = Math.min(100, Math.round(peak * 220)) + '%'; } });
+      } catch (e) {
+        recording = false; btn.disabled = false;
+        rec.stop(); // release the microphone if getUserMedia succeeded before the failure
+        msg.innerHTML = '<span class="bad">' + esc(e.name === 'NotAllowedError' ? 'Microphone permission was refused. In Settings → Safari → Microphone, allow this site, then reload.' : (e.message || String(e))) + '</span>';
+        return;
+      }
+      if (my !== takeToken) { rec.stop(); return; }
+      try { if (navigator.wakeLock) { const w = await navigator.wakeLock.request('screen'); if (my === takeToken) wake = w; else w.release(); } } catch (e) {}
+      btn.classList.add('hidden'); panel.classList.remove('hidden');
+      const t0 = Date.now(), maxS = Math.max(240, Math.round(ref.dur * 3));
+      timer = setInterval(() => { if (my !== takeToken) { clearInterval(timer); return; } const s = (Date.now() - t0) / 1000; const el = $('#rectime'); if (el) el.textContent = fmt(s); if (s > maxS) finish(); }, 500);
+      container.querySelector('#donebtn').onclick = finish;
+    };
+  }
+  const WHY = { short: 'The take was too short to compare. Chant the whole part, then tap Done.', noisy: 'There was too much background noise. Find a quieter room and hold the phone about a forearm away.', unvoiced: 'I could hardly hear your voice. Chant a little louder, closer to the phone.', align: 'I could not match your take with Amma\'s. Listen once more and chant along the same tune.', error: 'Something went wrong while scoring. Try once more; if it repeats, tell Vijay.' };
+  function resultHTML(res, ref, u) {
+    if (!res.ok) return `<div class="note">${esc(WHY[res.reason] || WHY.error)}</div>`;
+    const pass = res.score >= target();
+    const bar = (name, v) => `<div class="spread small" style="margin-top:6px"><span>${name}</span><span class="muted">${v}</span></div><div class="bar"><i style="width:${v}%;background:${v >= 70 ? 'var(--ok)' : v >= 45 ? 'var(--warn)' : 'var(--bad)'}"></i></div>`;
+    return `<div class="${pass ? 'good' : 'badbox'}" style="margin:8px 0"><div class="spread"><b>${pass ? '✓ Well done' : 'Not yet'}</b><span class="small muted">score ${res.score} · pass mark ${target()}</span></div>
+      <ul style="margin:6px 0 0 18px;padding:0">${res.comments.map(c => '<li>' + esc(c) + '</li>').join('')}</ul></div>
+      <div class="card">${bar('Tune — following Amma\'s rise and fall', res.parts.tune)}${bar('Length and pace — all of it, at about her speed', res.parts.pace)}${bar('Flow — breathing at line ends', res.parts.pauses)}${bar('Rhythm — keeping an even pace, as she does', res.parts.rhythm)}
+      <div style="margin-top:10px">${S.tuneGraph(ref, res, u)}</div><p class="small muted">Grey: Amma's tune, from start to end. Your voice, matched to hers: green close, red apart (your key does not matter). Swipe sideways on a long part.</p>
+      ${st.settings.teacher ? `<p class="small muted">dev ${res.meanDev.toFixed(2)} st · ratio ${res.ratio.toFixed(2)} · cover ${(res.cover * 100).toFixed(0)}% · syllables ${res.nucRatio.toFixed(2)} · pace ${res.pace.toFixed(2)} · rhythm sd ${res.sd.toFixed(2)} · pauses ${res.pz}/${res.pzAllowed} · pauses pts ${res.parts.pauses} · ${res.sampleRate} Hz</p>` : ''}</div>`;
+  }
+  const dots = a => '<span class="dots">' + a.slice(-3).map(s => `<i class="${s >= target() ? 'p' : 'f'}"></i>`).join('') + '</span>';
+
+  // ---------------- views ----------------
+  function home() {
+    leave();
+    const n = nextStep(), nPassed = C.units.filter(u => u.verses.length && passed(u.id)).length, nAll = C.units.filter(u => u.verses.length).length;
+    app.innerHTML = `<h1>Saundarya Lahari with Amma</h1><p class="muted">Listen to Amma, chant, and see how close you are.</p>
+      <div class="card"><div class="spread"><b>${nPassed} of ${nAll} parts learned</b><span class="small muted">pass mark ${target()}</span></div><div class="bar" style="margin-top:8px"><i style="width:${(100 * nPassed / nAll).toFixed(1)}%"></i></div></div>
+      <div class="card"><p class="small muted" style="margin:0 0 6px">Next</p><h2 style="margin:0 0 10px">${esc(stepTitle(n))}</h2><button class="primary big" id="go">Start</button></div>
+      ${storageOK ? '' : '<p class="note">This browser is not saving progress (private browsing?). Open the app from its home-screen icon.</p>'}
+      <details class="card"><summary><span class="chev">›</span> <b>All parts</b></summary><ul class="clean">${C.units.map(u => { const s = st.units[u.id]; return `<li class="spread"><button class="link" data-u="${u.id}">${esc(u.title)}</button><span>${s && s.ear ? '<span class="small muted">by ear</span>' : s && s.passed ? '<span class="tick">✓</span>' : s ? dots(s.a) : ''}</span></li>`; }).join('')}</ul></details>
+      <div class="row"><button id="backup">Save my progress</button><button id="settings">Settings</button><button id="help">Help</button></div>
+      <p class="small muted" style="margin-top:14px">Amma's recordings, 2019. Text: sanskritdocuments.org. Your voice is analysed on this phone and never uploaded.</p>`;
+    $('#go').onclick = () => { if (n.kind === 'review') review(n.units, 0, []); else if (n.kind === 'learn') learn(n.unit); else learn(C.units[0].id); };
+    app.querySelectorAll('[data-u]').forEach(b => b.onclick = () => learn(b.dataset.u));
+    $('#backup').onclick = backup; $('#settings').onclick = settings; $('#help').onclick = help;
+  }
+
+  function learn(uid) {
+    leave();
+    const u = unitById[uid], s = U(uid);
+    app.innerHTML = `<div class="spread"><button class="link" id="back">‹ Home</button><span class="small muted">Part ${u.idx + 1} of ${C.units.length}</span></div>
+      <h1>${esc(u.title)}</h1><p class="small muted">Listen to Amma at least twice${u.verses.length ? ', following the text' : ''}. Then record yourself chanting the whole of it.</p>
+      ${listenBox(uid)}${textBlock(u)}
+      ${u.verses.length ? '' : '<p class="small muted">The dhyānam is for listening and chanting along; it is not scored. Start the hymn from the home page.</p>'}
+      <div class="card ${u.verses.length ? '' : 'hidden'}"><div class="spread"><b>Your turn</b><span>${dots(s.a)}</span></div><p class="small muted">Pass on 2 of your last 3 tries.</p><div id="recbox"></div><div id="res"></div></div>
+      <div class="row" id="after"></div>`;
+    $('#back').onclick = home;
+    bindListen(uid);
+    const after = () => {
+      const s2 = U(uid), ok = s2.passed || s2.ear;
+      $('#after').innerHTML = ok ? `<button class="primary big" id="next">Next ›</button>` : (st.settings.teacher ? `<button id="ear">Mark as learnt by ear</button>` : '');
+      const nx = $('#next'); if (nx) nx.onclick = () => { const n = nextStep(); if (n.kind === 'review') review(n.units, 0, []); else if (n.kind === 'learn') learn(n.unit); else home(); };
+      const ear = $('#ear'); if (ear) ear.onclick = () => { s2.ear = true; if (!st.done.includes(uid)) st.done.push(uid); save(); after(); };
+    };
+    recorderUI($('#recbox'), uid, (res, ref) => {
+      $('#res').innerHTML = resultHTML(res, ref, u);
+      if (res.ok) {
+        const s2 = U(uid); s2.a.push(res.score); s2.a = s2.a.slice(-20);
+        const last3 = s2.a.slice(-3);
+        if (!s2.passed && last3.filter(x => x >= target()).length >= 2) { s2.passed = true; if (!st.done.includes(uid)) st.done.push(uid); $('#res').insertAdjacentHTML('afterbegin', '<p class="good"><b>Learned!</b> Two good tries out of three. On to the next part.</p>'); }
+        save();
+        const d = app.querySelector('.card .dots'); if (d) d.outerHTML = dots(s2.a);
+      }
+      after();
+    });
+    after();
+  }
+
+  // review: the last 5 learned parts, each recorded on its own
+  function review(list, k, scores) {
+    leave();
+    if (k >= list.length) {
+      const ok = scores.every(x => x !== null && x >= target() - 5);
+      if (ok) { st.reviewAt += list.length; st.reviews.push({ at: Date.now(), units: list, scores }); save(); }
+      app.innerHTML = `<h1>Review done</h1><div class="${ok ? 'good' : 'badbox'}"><p><b>${ok ? 'All five held up — well done.' : 'Some parts need another look.'}</b></p><ul>${list.map((id, i) => `<li>${esc(unitById[id].title)}: ${scores[i] === null ? 'not scored' : scores[i]}</li>`).join('')}</ul></div>
+        <button class="primary big" id="go">${ok ? 'Continue' : 'Try the review again'}</button><p><button class="link" id="home">Home</button></p>`;
+      $('#go').onclick = () => ok ? home() : review(list, 0, []);
+      if (!ok) $('#go').insertAdjacentHTML('afterend', '<button class="big" id="skiprev" style="margin-top:8px">Carry on to new parts (review these later)</button>');
+      const sk = $('#skiprev'); if (sk) sk.onclick = () => { st.reviewAt += list.length; st.reviews.push({ at: Date.now(), units: list, scores, skipped: true }); save(); home(); };
+      $('#home').onclick = home;
+      return;
+    }
+    const uid = list[k], u = unitById[uid];
+    app.innerHTML = `<div class="spread"><button class="link" id="back">‹ Home</button><span class="small muted">Review ${k + 1} of ${list.length}</span></div>
+      <h1>${esc(u.title)}</h1><p class="small muted">Chant it from memory if you can (the text is below if you need it). You may listen to Amma first.</p>
+      <div class="card"><div id="recbox"></div><div id="res"></div></div><div class="row" id="after"></div>${listenBox(uid)}
+      <details class="card"><summary><span class="chev">›</span> <b>Show the text</b></summary>${u.lines.map(l => `<div class="deva sm">${esc(l.deva)}</div>`).join('') || '<p class="small">Dhyānam (no text).</p>'}</details>`;
+    $('#back').onclick = home;
+    bindListen(uid);
+    recorderUI($('#recbox'), uid, (res, ref) => {
+      $('#res').innerHTML = resultHTML(res, ref, u);
+      $('#after').innerHTML = `<button class="primary big" id="next">${k + 1 < list.length ? 'Next part ›' : 'Finish'}</button>`;
+      $('#next').onclick = () => review(list, k + 1, scores.concat([res.ok ? res.score : null]));
+    });
+  }
+
+  // ---------------- backup / settings / help ----------------
+  function progressCode() { return btoa(unescape(encodeURIComponent(JSON.stringify(st)))); }
+  function summaryText() {
+    const nP = C.units.filter(u => passed(u.id)).length;
+    const recent = C.units.filter(u => st.units[u.id] && st.units[u.id].a.length).slice(-5).map(u => `${u.title}: ${st.units[u.id].a.slice(-3).join(', ')}`).join('; ');
+    return `Saundarya Lahari with Amma — ${nP} of ${C.units.length} parts learned. Recent: ${recent || 'none'}. Pass mark ${target()}.`;
+  }
+  function backup() {
+    leave();
+    app.innerHTML = `<button class="link" id="back">‹ Home</button><h1>Save my progress</h1>
+      <p class="small">Progress is kept on this phone. To be safe, share this code with Vijay now and then; it can bring your progress back on another phone.</p>
+      <textarea id="code" readonly>${esc(progressCode())}</textarea>
+      <div class="row"><button class="primary" id="share">Share…</button><button id="copy">Copy</button></div>
+      <h2>Bring progress back</h2><textarea id="imp" placeholder="Paste a progress code here"></textarea><button id="load">Load this code</button><p id="msg" class="small"></p>`;
+    $('#back').onclick = home;
+    $('#copy').onclick = async () => { try { await navigator.clipboard.writeText(progressCode()); $('#msg').textContent = 'Copied.'; } catch (e) { $('#code').select(); } };
+    $('#share').onclick = async () => { const text = summaryText() + '\n\n' + progressCode(); try { if (navigator.share) await navigator.share({ text }); else { await navigator.clipboard.writeText(text); $('#msg').textContent = 'Copied — paste it into a message to Vijay.'; } st.lastExport = Date.now(); save(); } catch (e) {} };
+    $('#load').onclick = () => { if (!confirm('Replace the progress on this phone with this code?')) return; try { const o = JSON.parse(decodeURIComponent(escape(atob($('#imp').value.trim())))); if (!o || !o.units) throw 0; st = Object.assign(fresh(), o); normalise(); save(); $('#msg').textContent = 'Progress loaded.'; } catch (e) { $('#msg').innerHTML = '<span class="bad">That is not a progress code from this app.</span>'; } };
+  }
+  function settings() {
+    leave();
+    const s = st.settings;
+    app.innerHTML = `<button class="link" id="back">‹ Home</button><h1>Settings</h1>
+      <div class="card"><label class="spread"><span>Show English transliteration under the Devanagari</span><input type="checkbox" id="iast" ${s.iast ? 'checked' : ''}></label></div>
+      <div class="card"><label class="spread"><span>Pass mark</span><input type="number" id="target" min="50" max="95" value="${s.target}" style="width:90px"></label></div>
+      ${s.teacher ? `<div class="card"><label class="spread"><span>Tune strictness</span><select id="tuneHi">${[[0.6, 'Strict'], [0.75, 'Medium'], [0.9, 'Gentle']].map(([v, n]) => `<option value="${v}" ${+s.tuneHi === v ? 'selected' : ''}>${n}</option>`).join('')}</select></label><p class="small muted">How closely the tune must follow Amma's. Set by Vijay after testing.</p></div>` : ''}
+      <div class="card"><label class="spread"><span>Teacher mode (numbers, "learnt by ear")</span><input type="checkbox" id="teacher" ${s.teacher ? 'checked' : ''}></label></div>
+      <p><a class="btn" href="mic.html">Device check</a></p>`;
+    $('#back').onclick = home;
+    $('#iast').onchange = e => { s.iast = e.target.checked; save(); };
+    $('#target').onchange = e => { const v = Math.max(50, Math.min(95, +e.target.value || 75)); s.target = v; save(); };
+    $('#teacher').onchange = e => { s.teacher = e.target.checked; save(); settings(); };
+    const th = $('#tuneHi'); if (th) th.onchange = e => { s.tuneHi = +e.target.value; save(); };
+  }
+  function help() {
+    leave();
+    app.innerHTML = `<button class="link" id="back">‹ Home</button><h1>How it works</h1>
+      <div class="card small"><p>The hymn is in ${C.units.length} parts, exactly as Amma recorded it: her opening meditation, then one to three verses each.</p>
+      <p><b>Each part:</b> listen to Amma (slower if you like) while following the text, then tap <b>Record yourself</b>, chant the whole part, and tap <b>Done</b>. You pass a part with two good tries out of three.</p>
+      <p><b>The score</b> compares your chant with Amma's: whether your voice rises and falls where hers does (your own key is fine), whether you chanted all of it at about her pace, where you breathe, and how evenly you keep the pace. It does not check pronunciation word by word, or long and short syllables — for that and for meanings, ask your Guru.</p>
+      <p><b>Every 5 parts</b> there is a short review of those five.</p>
+      <p><b>Tips:</b> a quiet room; the phone about a forearm away; no AirPods or Bluetooth headphones (they change the microphone); turn the volume up if you can't hear Amma.</p>
+      <p>Always open the app from its home-screen icon, so your progress stays in one place.</p></div>`;
+    $('#back').onclick = home;
+  }
+
+  window.addEventListener('pagehide', () => { if (recording) rec.stop(); });
+  document.addEventListener('visibilitychange', () => { if (document.hidden && recording) { const d = document.querySelector('#donebtn'); if (d) d.click(); } });
+  home();
+};
+
+</script><script>
+/* Boot: unlock the vault (passphrase once per browser), load the encrypted course, start the app. */
+(async function () {
+  'use strict';
+  const S = window.Shared, app = document.querySelector('#app');
+  async function go() { window.COURSE = await S.Vault.json('c.bin'); window.startApp(); }
+  function gate(msg) {
+    app.innerHTML = `<h1>Saundarya Lahari with Amma</h1><div class="card"><p>This is private. Enter the passphrase Vijay gave you.</p>
+      <input id="pass" type="text" autocapitalize="none" autocomplete="off" autocorrect="off" spellcheck="false" style="width:100%;font:18px var(--ui);padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--ink)" placeholder="passphrase">
+      <button class="primary big" id="unlock" style="margin-top:10px">Open</button><p class="small" id="pm">${msg || ''}</p>
+      <p class="small muted">Open the app from its home-screen icon, so it remembers the passphrase and your progress.</p></div>`;
+    document.querySelector('#unlock').onclick = async () => {
+      const pm = document.querySelector('#pm'); pm.textContent = 'Checking…';
+      if (!window.crypto || !crypto.subtle) { pm.innerHTML = '<span class="bad">This browser cannot open it. Use Safari on the iPhone or Chrome on the Mac.</span>'; return; }
+      try { await S.Vault.unlock(document.querySelector('#pass').value); }
+      catch (e) { pm.innerHTML = '<span class="bad">That passphrase did not open it. Check it with Vijay (spaces and dashes count).</span>'; return; }
+      try { await go(); } catch (e) { pm.innerHTML = '<span class="bad">' + S.esc(e.message || String(e)) + '</span>'; }
+    };
+  }
+  if (await S.Vault.load()) { try { await go(); } catch (e) { gate(S.esc(e.message || String(e))); } }
+  else gate();
+})();
+
+</script></body></html>
